@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Financial Consultants | Strategic Financial Advisory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Add this with your other CSS links -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<style>
+        /* ===== FINANCE CONSULTANCY STYLES ===== */
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4A6;
+            --gold-dark: #B8860B;
+            --black: #121212;
+            --black-light: #1E1E1E;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6C757D;
+            --gray-dark: #343A40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-cta {
+            background-color: var(--gold);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 4px;
+            margin-left: 1rem;
+        }
+        
+        .nav-cta:hover {
+            background-color: var(--gold-dark);
+            color: var(--white) !important;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--black);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+        
+        .hero-title span {
+            color: var(--gold);
+            position: relative;
+        }
+        
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--gold-dark);
+            border-color: var(--gold-dark);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--black);
+            border: 2px solid var(--black);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-label {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 1rem auto 2rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+        
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 100px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+        
+        .about-text p {
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .feature h4 {
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        
+        .feature p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background-color: var(--gold);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .experience-years {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .experience-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== TEAM SECTION ===== */
+        .team {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 3px solid var(--gold-light);
+            position: relative;
+        }
+        
+        .member-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gold);
+            opacity: 0.1;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+        
+        .member-title {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--black-light);
+            color: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        
+        .contact-value {
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .form-btn {
+            background-color: var(--gold);
+            color: var(--white);
+            border: none;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .form-btn:hover {
+            background-color: var(--gold-dark);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--black);
+            padding: 60px 0 30px;
+            color: var(--white);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--gold);
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--black-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--black-light);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .demo-notice {
+            background-color: var(--gray-light);
+            padding: 20px;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--gold-light);
+        }
+        
+        .demo-notice p {
+            color: var(--gray-dark);
+            margin: 0;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--gray-light);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Meridian<span>Financial</span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="nav-cta">Schedule Consultation</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Strategic <span>Financial Advisory</span> for Growing Enterprises
+                </h1>
+                <p class="hero-subtitle">
+                    Meridian Financial Consultants provides elite financial strategy, investment guidance, and wealth management services to help businesses and individuals achieve their financial objectives with precision and integrity.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$4.2B+</div>
+                        <div class="stat-label">Assets Managed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Retention</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Advisory Services</h2>
+            <p class="section-subtitle">Comprehensive financial solutions tailored to your unique needs and objectives</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Investment Strategy</h3>
+                    <p class="service-description">
+                        Customized investment portfolios and strategies designed to maximize returns while managing risk according to your financial goals.
+                    </p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="service-title">Wealth Management</h3>
+                    <p class="service-description">
+                        Holistic wealth management services including estate planning, tax optimization, and legacy preservation strategies.
+                    </p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Corporate Finance</h3>
+                    <p class="service-description">
+                        Strategic financial planning, M&A advisory, capital structure optimization, and corporate restructuring services.
+                    </p>
+                    <a href="#contact" class="service-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Trusted Financial Expertise Since 1998</h2>
+                    <p>
+                        Meridian Financial Consultants has been at the forefront of financial advisory services for over two decades. Our team of certified professionals combines deep industry knowledge with innovative strategies to deliver exceptional results.
+                    </p>
+                    <p>
+                        We believe in building lasting relationships based on trust, transparency, and a commitment to excellence. Our client-centric approach ensures that every financial strategy is tailored to individual needs and long-term objectives.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Fiduciary Responsibility</h4>
+                                <p>We are legally and ethically obligated to act in your best financial interests at all times.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-handshake"></i>
+                            <div>
+                                <h4>Personalized Service</h4>
+                                <p>Every client receives dedicated attention and customized financial solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4>Global Perspective</h4>
+                                <p>International market insights combined with local expertise for comprehensive strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Meeting">
+                    <div class="experience-badge">
+                        <span class="experience-years">25+</span>
+                        <span class="experience-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Our Leadership Team</h2>
+            <p class="section-subtitle">Meet the experienced professionals guiding your financial success</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo"></div>
+                    <h3 class="member-name">Robert Chen</h3>
+                    <div class="member-title">Managing Partner</div>
+                    <p class="member-bio">25+ years in investment banking and wealth management. MBA from Wharton.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo"></div>
+                    <h3 class="member-name">Sarah Johnson</h3>
+                    <div class="member-title">Senior Financial Advisor</div>
+                    <p class="member-bio">Specializes in corporate finance and M&A with 18 years of experience.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo"></div>
+                    <h3 class="member-name">Michael Rodriguez</h3>
+                    <div class="member-title">Investment Director</div>
+                    <p class="member-bio">Portfolio management expert with focus on sustainable investments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Schedule a Consultation</h2>
+            <p class="section-subtitle" style="color: var(--gray);">Begin your journey toward financial excellence with a complimentary initial consultation</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="contact-label">Address</div>
+                            <div class="contact-value">500 Park Avenue, New York, NY 10022</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">(212) 555-0100</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">consult@meridianfinancial.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="contact-label">Business Hours</div>
+                            <div class="contact-value">Mon-Fri: 9:00 AM - 6:00 PM EST</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="investment">Investment Strategy</option>
+                                <option value="wealth">Wealth Management</option>
+                                <option value="corporate">Corporate Finance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-btn">Request Consultation</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="demo-notice">
+                <p><strong>Demo Website:</strong> This is a template website created by DevWeb Design. Real financial website: $70 setup + $20/month maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Meridian<span>Financial</span></div>
+                    <p class="footer-text">
+                        Elite financial advisory services for discerning clients. Trust, integrity, and exceptional results since 1998.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-services">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Investment Strategy</a></li>
+                        <li><a href="#services">Wealth Management</a></li>
+                        <li><a href="#services">Corporate Finance</a></li>
+                        <li><a href="#services">Retirement Planning</a></li>
+                        <li><a href="#services">Tax Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Schedule Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Meridian Financial Consultants. All rights reserved. | This is a demo website template.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--gold);">
+                    Professional web design by DevWeb Design: $70 setup + $20/month maintenance.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+   <!-- Add this with your other scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Enhanced Animations for Finance Page
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Finance page loaded - initializing animations');
+    
+    // ===== BASIC FUNCTIONALITY =====
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+    
+    // Form submission
+    const consultationForm = document.getElementById('consultationForm');
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.form-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Request Sent';
+                submitBtn.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                    this.reset();
+                    
+                    // Show a subtle notification
+                    showNotification('Thank you! We\'ll contact you within 24 hours.');
+                }, 2000);
+            }, 1500);
+        });
+    }
+    
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            
+            if (targetElement) {
+                // Close mobile menu
+                if (navLinks) navLinks.classList.remove('active');
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    }
+    
+    // ===== ADD AOS ATTRIBUTES FIRST =====
+    function addAOSAttributes() {
+        // Hero section
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.setAttribute('data-aos', 'fade-right');
+        }
+        
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            heroStats.setAttribute('data-aos', 'fade-up');
+            heroStats.setAttribute('data-aos-delay', '200');
+        }
+        
+        // Stats items
+        const statItems = document.querySelectorAll('.stat-item');
+        statItems.forEach((item, index) => {
+            item.setAttribute('data-aos', 'fade-up');
+            item.setAttribute('data-aos-delay', `${300 + (index * 100)}`);
+        });
+        
+        // Section titles
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            title.setAttribute('data-aos', 'fade-up');
+        });
+        
+        const sectionSubtitles = document.querySelectorAll('.section-subtitle');
+        sectionSubtitles.forEach(subtitle => {
+            subtitle.setAttribute('data-aos', 'fade-up');
+            subtitle.setAttribute('data-aos-delay', '100');
+        });
+        
+        // Service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', `${200 + (index * 100)}`);
+        });
+        
+        // About section
+        const aboutText = document.querySelector('.about-text');
+        if (aboutText) {
+            aboutText.setAttribute('data-aos', 'fade-right');
+        }
+        
+        const aboutImage = document.querySelector('.about-image');
+        if (aboutImage) {
+            aboutImage.setAttribute('data-aos', 'fade-left');
+            aboutImage.setAttribute('data-aos-delay', '200');
+        }
+        
+        const features = document.querySelectorAll('.feature');
+        features.forEach((feature, index) => {
+            feature.setAttribute('data-aos', 'fade-right');
+            feature.setAttribute('data-aos-delay', `${300 + (index * 100)}`);
+        });
+        
+        // Team members
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach((member, index) => {
+            member.setAttribute('data-aos', 'fade-up');
+            member.setAttribute('data-aos-delay', `${200 + (index * 100)}`);
+        });
+        
+        // Contact items
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach((item, index) => {
+            item.setAttribute('data-aos', 'fade-right');
+            item.setAttribute('data-aos-delay', `${100 + (index * 100)}`);
+        });
+        
+        // Contact form
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.setAttribute('data-aos', 'fade-left');
+            contactForm.setAttribute('data-aos-delay', '200');
+        }
+        
+        // Footer
+        const footerContent = document.querySelector('.footer-content');
+        if (footerContent) {
+            footerContent.setAttribute('data-aos', 'fade-up');
+        }
+    }
+    
+    // ===== INITIALIZE AOS AFTER ADDING ATTRIBUTES =====
+    function initAOS() {
+        // Add attributes first
+        addAOSAttributes();
+        
+        // Then initialize AOS
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100,
+                delay: 0,
+                disable: window.innerWidth < 768,
+                startEvent: 'DOMContentLoaded'
+            });
+        }
+        
+        // Force refresh after a short delay to ensure everything renders
+        setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }, 500);
+    }
+    
+    // ===== STATS COUNTER ANIMATION =====
+    function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+            if (stat.getAttribute('data-counted') !== 'true') {
+                const original = stat.textContent;
+                const isMoney = original.includes('$');
+                const cleanValue = original.replace(/[^0-9.]/g, '');
+                const target = parseFloat(cleanValue);
+                
+                if (!isNaN(target)) {
+                    let count = 0;
+                    const increment = target / 50;
+                    const duration = 1500;
+                    
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            stat.textContent = original;
+                            stat.setAttribute('data-counted', 'true');
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = isMoney ? 
+                                `$${Math.floor(count).toLocaleString()}+` : 
+                                `${Math.floor(count)}+`;
+                        }
+                    }, duration / 50);
+                }
+            }
+        });
+    }
+    
+    // ===== ENHANCE HOVER EFFECTS =====
+    function enhanceHoverEffects() {
+        // Cards
+        const cards = document.querySelectorAll('.service-card, .team-member');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '';
+            });
+        });
+        
+        // Buttons
+        const buttons = document.querySelectorAll('.btn, .nav-cta, .form-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Links
+        const links = document.querySelectorAll('.service-link, .footer-links a, .nav-links a');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    }
+    
+    // ===== NOTIFICATION FUNCTION =====
+    function showNotification(message) {
+        // Create notification
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        // Add styles if not already added
+        if (!document.querySelector('#notification-styles')) {
+            const style = document.createElement('style');
+            style.id = 'notification-styles';
+            style.textContent = `
+                .notification {
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: white;
+                    border-left: 4px solid var(--gold);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    border-radius: 4px;
+                    padding: 15px 20px;
+                    z-index: 9999;
+                    animation: slideInRight 0.3s ease-out, slideOutRight 0.3s ease-out 4.7s;
+                    transform: translateX(100%);
+                }
+                
+                .notification-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .notification-content i {
+                    color: var(--gold);
+                    font-size: 1.2rem;
+                }
+                
+                @keyframes slideInRight {
+                    to {
+                        transform: translateX(0);
+                    }
+                }
+                
+                @keyframes slideOutRight {
+                    from {
+                        transform: translateX(0);
+                    }
+                    to {
+                        transform: translateX(100%);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Trigger animation
+        setTimeout(() => {
+            notification.style.animation = 'slideInRight 0.3s ease-out forwards';
+        }, 10);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
+        }, 5000);
+    }
+    
+    // ===== ADD CUSTOM CSS FOR BETTER ANIMATIONS =====
+    function addCustomAnimationStyles() {
+        if (!document.querySelector('#custom-animation-styles')) {
+            const style = document.createElement('style');
+            style.id = 'custom-animation-styles';
+            style.textContent = `
+                /* Initial state for animated elements */
+                [data-aos] {
+                    opacity: 0;
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                /* Fix for AOS not working on some elements */
+                .service-card,
+                .team-member,
+                .stat-item,
+                .feature,
+                .contact-item {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: all 0.6s ease;
+                }
+                
+                .service-card.aos-animate,
+                .team-member.aos-animate,
+                .stat-item.aos-animate,
+                .feature.aos-animate,
+                .contact-item.aos-animate {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Hero content initial state */
+                .hero-content {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                    transition: all 0.8s ease;
+                }
+                
+                .hero-content.aos-animate {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                
+                /* About image initial state */
+                .about-image {
+                    opacity: 0;
+                    transform: translateX(20px);
+                    transition: all 0.8s ease;
+                }
+                
+                .about-image.aos-animate {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                
+                /* Contact form initial state */
+                .contact-form {
+                    opacity: 0;
+                    transform: translateX(-20px);
+                    transition: all 0.8s ease;
+                }
+                
+                .contact-form.aos-animate {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                
+                /* Experience badge pulse animation */
+                .experience-badge {
+                    animation: pulse 2s infinite;
+                }
+                
+                @keyframes pulse {
+                    0% {
+                        transform: scale(1);
+                        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+                    }
+                    50% {
+                        transform: scale(1.05);
+                        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+                    }
+                    100% {
+                        transform: scale(1);
+                        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+                    }
+                }
+                
+                /* Button hover effects */
+                .btn, .nav-cta, .form-btn {
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.3s ease !important;
+                }
+                
+                .btn::after, .nav-cta::after, .form-btn::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                    transition: width 0.6s, height 0.6s;
+                }
+                
+                .btn:hover::after, .nav-cta:hover::after, .form-btn:hover::after {
+                    width: 300px;
+                    height: 300px;
+                }
+                
+                /* Image fade in */
+                img {
+                    opacity: 0;
+                    animation: fadeInImage 1s ease-out 0.3s forwards;
+                }
+                
+                @keyframes fadeInImage {
+                    to {
+                        opacity: 1;
+                    }
+                }
+                
+                /* Mobile optimizations */
+                @media (max-width: 768px) {
+                    [data-aos] {
+                        opacity: 1 !important;
+                        transform: none !important;
+                        transition: none !important;
+                    }
+                    
+                    .experience-badge {
+                        animation: none;
+                    }
+                    
+                    .btn::after, .nav-cta::after, .form-btn::after {
+                        display: none;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+    
+    // ===== INITIALIZE EVERYTHING =====
+    function initAll() {
+        // Add custom styles first
+        addCustomAnimationStyles();
+        
+        // Initialize AOS
+        initAOS();
+        
+        // Enhance hover effects
+        enhanceHoverEffects();
+        
+        // Animate stats when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observe hero stats
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            observer.observe(heroStats);
+        }
+        
+        // Update copyright year
+        const yearElement = document.querySelector('.footer-bottom p');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+        }
+        
+        console.log('All animations initialized successfully');
+    }
+    
+    // Start everything
+    initAll();
+    
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }, 250);
+    });
+});
+</script>
+</body>
+</html>

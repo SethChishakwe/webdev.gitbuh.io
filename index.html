@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevWeb | Professional Web Design Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">DevWeb</a>
+            <div class="nav-links">
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right" data-aos-delay="100">
+                <h1 class="hero-title">
+                    Professional <span class="gradient-text">Web Design</span><br>
+                    For Your Business
+                </h1>
+                <p class="hero-subtitle">
+                    I build fast, responsive websites that convert visitors into customers. 
+                    Simple pricing: <span class="terminal-green">$70 setup</span> + <span class="terminal-yellow">$20/month</span> maintenance.
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn btn-secondary">Get Quote</a>
+                </div>
+            </div>
+            <div class="code-terminal" data-aos="fade-left" data-aos-delay="200">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">webdesigner@portfolio: ~/services</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> service --list
+                    </div>
+                    <div class="output">
+                        Available Services:<br>
+                        • Custom Website Design<br>
+                        • Mobile Responsive<br>
+                        • SEO Optimization<br>
+                        • Monthly Maintenance<br>
+                        • 24/7 Support
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> pricing --quote
+                    </div>
+                    <div class="output">
+                        Standard Package:<br>
+                        Setup Fee: $70 (one-time)<br>
+                        Monthly: $20 (hosting + maintenance)<br>
+                        Contract: Month-to-month
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> <span class="cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section id="portfolio" class="section bg-dark">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">Recent business websites I've designed. Each site is mobile-responsive, fast, and built to convert.</p>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- Finance Company -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-date">FINANCE • 2023</div>
+                    <h3 class="article-title">Secure Finance Co.</h3>
+                    <p class="article-excerpt">
+                        Professional financial services website with secure client portal, service pages, and lead capture forms. Built with trust and credibility in mind.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Responsive</span>
+                        <span class="tag">SSL</span>
+                        <span class="tag">Contact Forms</span>
+                    </div>
+                    <a href="sites/finance/index.html" target="_blank" class="article-link">
+                        View Live Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Restaurant -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-date">RESTAURANT • 2023</div>
+                    <h3 class="article-title">Bella Vista Restaurant</h3>
+                    <p class="article-excerpt">
+                        Restaurant website with online menu, reservation system, food gallery, and location map. Designed to make customers hungry and ready to visit.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Online Menu</span>
+                        <span class="tag">Reservations</span>
+                        <span class="tag">Gallery</span>
+                    </div>
+                    <a href="sites/restaurant/index.html" target="_blank" class="article-link">
+                        View Live Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Hardware Store -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="article-date">RETAIL • 2023</div>
+                    <h3 class="article-title">Pro Hardware Store</h3>
+                    <p class="article-excerpt">
+                        Hardware store website featuring product categories, service information, store hours, and interactive location map. Built for local business growth.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Product Catalog</span>
+                        <span class="tag">Location Map</span>
+                        <span class="tag">Services</span>
+                    </div>
+                    <a href="sites/hardware/index.html" target="_blank" class="article-link">
+                        View Live Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Bakery -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="article-date">FOOD • 2023</div>
+                    <h3 class="article-title">Sweet Treats Bakery</h3>
+                    <p class="article-excerpt">
+                        Bakery website showcasing delicious products with high-quality photos, online ordering system, daily specials, and newsletter signup.
+                    </p>
+                    <div class="article-tags">
+                        <span class="tag">Online Orders</span>
+                        <span class="tag">Product Gallery</span>
+                        <span class="tag">Specials</span>
+                    </div>
+                    <a href="sites/bakery/index.html" target="_blank" class="article-link">
+                        View Live Demo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Everything you need for a professional online presence. No hidden fees, no complicated contracts.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="project-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="project-title">Custom Design</h3>
+                    <p class="project-description">
+                        Unique website design tailored to your business. Mobile-first approach that looks great on all devices.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="project-title">Responsive Development</h3>
+                    <p class="project-description">
+                        Websites that work perfectly on phones, tablets, and desktops. Essential for modern business.
+                    </p>
+                    <div class="project-tech">
+                        <span>Flexbox</span>
+                        <span>Grid</span>
+                        <span>Media Queries</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="project-title">Maintenance & Support</h3>
+                    <p class="project-description">
+                        Monthly updates, security patches, backups, and technical support. Your website is always secure.
+                    </p>
+                    <div class="project-tech">
+                        <span>SSL</span>
+                        <span>Backups</span>
+                        <span>Updates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING SECTION ===== -->
+    <section id="pricing" class="section bg-dark">
+        <div class="container">
+            <div class="about-grid">
+                <div data-aos="fade-right">
+                    <h2 class="section-title">Simple Pricing</h2>
+                    <p class="about-text">
+                        I believe in transparent pricing with no surprises. One flat fee for setup, one flat fee for monthly maintenance. That's it.
+                    </p>
+                    
+                    <div class="pricing-details" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-card">
+                            <div class="stat">
+                                <div class="stat-number terminal-green">$70</div>
+                                <div class="stat-label">One-Time Setup</div>
+                                <p class="about-text" style="margin-top: 1rem; font-size: 0.9rem;">
+                                    • Custom website design<br>
+                                    • Mobile responsive<br>
+                                    • Basic SEO setup<br>
+                                    • Contact forms<br>
+                                    • 2 weeks of revisions
+                                </p>
+                            </div>
+                            
+                            <div class="stat" data-aos="fade-up" data-aos-delay="300">
+                                <div class="stat-number terminal-yellow">$20</div>
+                                <div class="stat-label">Monthly Maintenance</div>
+                                <p class="about-text" style="margin-top: 1rem; font-size: 0.9rem;">
+                                    • Professional hosting<br>
+                                    • SSL certificate<br>
+                                    • Monthly updates<br>
+                                    • Daily backups<br>
+                                    • Technical support<br>
+                                    • Security monitoring
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-card" data-aos="fade-left" data-aos-delay="100">
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Portfolio Sites</div>
+                    </div>
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Mobile Friendly</div>
+                    </div>
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                    <div class="stat" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Hidden Fees</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 class="section-title">Get Your Website</h2>
+                <p class="section-subtitle">Ready to grow your business online? Contact me for a free consultation.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div data-aos="fade-right">
+                    <h3 class="contact-title">Contact Information</h3>
+                    
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="100">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">hello@devweb.example.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="200">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">(123) 456-7890</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" data-aos="fade-right" data-aos-delay="300">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="contact-label">Response Time</div>
+                            <div class="contact-value">Within 24 hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="contact-title">Quick Start</h3>
+                    
+                    <a href="#contact" class="social-link" data-aos="fade-left" data-aos-delay="100">
+                        <i class="fas fa-comment"></i>
+                        <div>
+                            <div class="contact-label">Free Consultation</div>
+                            <div class="contact-value">30-minute call to discuss your needs</div>
+                        </div>
+                    </a>
+                    
+                    <a href="#portfolio" class="social-link" data-aos="fade-left" data-aos-delay="200">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <div class="contact-label">View Portfolio</div>
+                            <div class="contact-value">See more example websites</div>
+                        </div>
+                    </a>
+                    
+                    <a href="#pricing" class="social-link" data-aos="fade-left" data-aos-delay="300">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div>
+                            <div class="contact-label">Pricing Details</div>
+                            <div class="contact-value">Complete breakdown of costs</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" data-aos="fade-up">
+                <div class="footer-logo">DevWeb</div>
+                <p class="footer-tagline">
+                    Professional web design services for small businesses. $70 setup + $20/month.
+                </p>
+                
+                <div class="footer-links">
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#services">Services</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <p class="footer-copyright">
+                    © 2023 DevWeb Design. All portfolio sites are example templates. Hosted on GitHub Pages.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100,
+            delay: 100
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

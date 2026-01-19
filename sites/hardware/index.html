@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Hardware Store | Building Materials & Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== HARDWARE STORE STYLES ===== */
+        :root {
+            --primary: #FF6B35;      /* Orange - hardware color */
+            --secondary: #004E89;    /* Blue - professional */
+            --accent: #1A936F;       /* Green - success */
+            --dark: #1A1A1A;         /* Dark background */
+            --light: #F8F9FA;        /* Light background */
+            --gray: #6C757D;         /* Gray text */
+            --gray-light: #E9ECEF;   /* Light gray */
+            --warning: #FFC107;      /* Warning yellow */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e55a2e;
+            border-color: #e55a2e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement-bar {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .announcement-bar a {
+            color: var(--text-light);
+            text-decoration: underline;
+            margin-left: 5px;
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-top {
+            background-color: var(--secondary);
+            color: var(--text-light);
+            padding: 10px 0;
+        }
+        
+        .navbar-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+        }
+        
+        .navbar-main {
+            padding: 15px 0;
+        }
+        
+        .navbar-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .logo-text span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-cta {
+            background-color: var(--primary);
+            color: var(--text-light) !important;
+            padding: 10px 24px;
+            border-radius: 4px;
+            margin-left: 1rem;
+        }
+        
+        .nav-cta:hover {
+            background-color: #e55a2e;
+        }
+        
+        .nav-cta:hover::after {
+            width: 0 !important;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 1rem;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .hero-title span {
+            color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .hero-feature i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 50%;
+        }
+        
+        .feature-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* ===== CATEGORIES SECTION ===== */
+        .categories {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+        
+        .category-content {
+            padding: 25px;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .category-count {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .category-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* ===== PRODUCTS CATALOGUE SECTION ===== */
+        .catalogue {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .catalogue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .catalogue-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            color: var(--gray);
+            border: 2px solid var(--gray-light);
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-light);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .product-badge.sale {
+            background-color: var(--accent);
+        }
+        
+        .product-badge.new {
+            background-color: var(--secondary);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            height: 2.6rem;
+            overflow: hidden;
+        }
+        
+        .product-sku {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .original-price {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .stock-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stock-status.in-stock {
+            color: var(--accent);
+        }
+        
+        .stock-status.low-stock {
+            color: var(--warning);
+        }
+        
+        .stock-status.out-of-stock {
+            color: var(--primary);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-cart {
+            flex: 1;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-cart:hover {
+            background-color: #e55a2e;
+        }
+        
+        .btn-view {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-view:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--secondary);
+            color: var(--text-light);
+        }
+        
+        .contact .section-title {
+            color: var(--text-light);
+        }
+        
+        .contact .section-title::after {
+            background-color: var(--primary);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        
+        .contact-value {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .opening-hours {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .opening-hours li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+            color: var(--text-dark);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-btn {
+            background-color: var(--primary);
+            color: var(--text-light);
+            width: 100%;
+            padding: 14px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .form-btn:hover {
+            background-color: #e55a2e;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--dark);
+            padding: 60px 0 30px;
+            color: var(--text-light);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--primary);
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .demo-notice {
+            background-color: var(--light);
+            padding: 20px;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--primary);
+        }
+        
+        .demo-notice p {
+            color: var(--dark);
+            margin: 0;
+        }
+        
+        /* ===== CART MODAL ===== */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+        
+        .cart-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: var(--gray-light);
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cart-item-remove {
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .cart-item-remove:hover {
+            color: var(--primary);
+        }
+        
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-top {
+                display: none;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--gray-light);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .catalogue-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .catalogue-filters {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .cart-modal {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== ANNOUNCEMENT BAR ===== -->
+    <div class="announcement-bar">
+        <div class="container">
+            🎉 Grand Opening Sale! Get 20% off on all power tools this week. <a href="#catalogue">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="navbar-top">
+            <div class="container">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> Call Us: +263 123 456 789</span>
+                    <span><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 6:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> 123 Industrial Road, Harare</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-main">
+            <div class="container">
+                <a href="#" class="logo">
+                    <i class="fas fa-tools logo-icon"></i>
+                    <div class="logo-text">Pro<span>Hardware</span></div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#categories">Categories</a>
+                    <a href="#catalogue">Catalogue</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#catalogue" class="nav-cta">Shop Now</a>
+                    
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="cart-count" id="cartCount">0</div>
+                    </div>
+                </div>
+                
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== CART MODAL ===== -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button id="closeCart" style="background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="hero-title">Quality Hardware & Building Materials</h1>
+            <p class="hero-subtitle">
+                From power tools to construction materials, we supply everything you need for your building projects. 
+                Professional quality at competitive prices with expert advice.
+            </p>
+            <div class="hero-buttons">
+                <a href="#catalogue" class="btn btn-primary">Browse Products</a>
+                <a href="#contact" class="btn btn-secondary">Contact Sales</a>
+            </div>
+            
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div class="feature-text">
+                        <strong>Free Delivery</strong><br>
+                        Orders over $200
+                    </div>
+                </div>
+                
+                <div class="hero-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="feature-text">
+                        <strong>2-Year Warranty</strong><br>
+                        On all power tools
+                    </div>
+                </div>
+                
+                <div class="hero-feature">
+                    <i class="fas fa-headset"></i>
+                    <div class="feature-text">
+                        <strong>Expert Support</strong><br>
+                        Technical advice available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES SECTION ===== -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-subtitle">Browse our wide range of hardware products and building materials</p>
+            
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterProducts('power-tools')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power Tools">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Power Tools</h3>
+                        <div class="category-count">45+ Products</div>
+                        <p class="category-description">
+                            Drills, saws, sanders, and all electric tools for professionals and DIY enthusiasts.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="filterProducts('building-materials')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Building Materials">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Building Materials</h3>
+                        <div class="category-count">120+ Products</div>
+                        <p class="category-description">
+                            Cement, bricks, timber, roofing, and all essential construction materials.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="filterProducts('plumbing')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1614330264843-9c9f8e163c5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plumbing Supplies">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Plumbing</h3>
+                        <div class="category-count">85+ Products</div>
+                        <p class="category-description">
+                            Pipes, fittings, taps, valves, and all plumbing installation materials.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="category-card" onclick="filterProducts('electrical')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Electrical Supplies">
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Electrical</h3>
+                        <div class="category-count">65+ Products</div>
+                        <p class="category-description">
+                            Wires, cables, switches, sockets, and all electrical installation supplies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS CATALOGUE SECTION ===== -->
+    <section id="catalogue" class="catalogue">
+        <div class="container">
+            <div class="catalogue-header">
+                <h2 class="section-title">Product Catalogue</h2>
+                <div class="catalogue-filters">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('power-tools')">Power Tools</button>
+                    <button class="filter-btn" onclick="filterProducts('building-materials')">Building Materials</button>
+                    <button class="filter-btn" onclick="filterProducts('plumbing')">Plumbing</button>
+                    <button class="filter-btn" onclick="filterProducts('electrical')">Electrical</button>
+                    <button class="filter-btn" onclick="filterProducts('sale')">On Sale</button>
+                </div>
+            </div>
+            <p class="section-subtitle">Browse our complete range of hardware products with detailed specifications and pricing</p>
+            
+            <div class="catalogue-grid" id="productGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Beyond just selling products, we provide comprehensive hardware solutions</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3 class="service-title">Bulk Supply</h3>
+                    <p class="service-description">
+                        We supply construction companies and contractors with bulk materials at wholesale prices. 
+                        Get competitive quotes for large orders.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Tool Rental</h3>
+                    <p class="service-description">
+                        Rent professional-grade power tools and equipment for your projects. 
+                        Daily, weekly, and monthly rental options available.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">View Rental Options</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="service-title">Technical Support</h3>
+                    <p class="service-description">
+                        Our experienced staff provides technical advice, project planning assistance, 
+                        and product recommendations for your specific needs.
+                    </p>
+                    <a href="#contact" class="btn btn-secondary">Get Advice</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Pro Hardware</h2>
+            <p class="section-subtitle">Your trusted partner for building and construction supplies since 1995</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Building Zimbabwe Since 1995</h2>
+                    <p>
+                        Pro Hardware Store started as a small family business and has grown into one of 
+                        Zimbabwe's leading suppliers of quality building materials and hardware. 
+                        For over 25 years, we've been serving contractors, builders, and DIY enthusiasts.
+                    </p>
+                    <p>
+                        We pride ourselves on stocking only quality products from trusted manufacturers, 
+                        providing expert advice, and offering competitive prices. Whether you're building 
+                        a house, renovating, or working on a commercial project, we have what you need.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">10,000+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hardware Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch for quotes, technical advice, or bulk orders</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="contact-label">Address</div>
+                            <div class="contact-value">123 Industrial Road, Harare, Zimbabwe</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">+263 123 456 789</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">sales@prohardware.co.zw</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="contact-label">Opening Hours</div>
+                            <div class="contact-value">Mon-Sat: 8:00 AM - 6:00 PM</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="opening-hours">
+                        <li><span>Monday - Friday</span> <span>8am - 6pm</span></li>
+                        <li><span>Saturday</span> <span>8am - 4pm</span></li>
+                        <li><span>Sunday</span> <span>Closed</span></li>
+                        <li><span>Public Holidays</span> <span>9am - 1pm</span></li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="quote">Request Quote</option>
+                                <option value="technical">Technical Advice</option>
+                                <option value="bulk">Bulk Order</option>
+                                <option value="rental">Tool Rental</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Your message or inquiry details..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Pro<span>Hardware</span></div>
+                    <p class="footer-text">
+                        Your trusted supplier of quality building materials, tools, and hardware. 
+                        Professional solutions for contractors and DIY enthusiasts since 1995.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Product Categories</a></li>
+                        <li><a href="#catalogue">Product Catalogue</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Product Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#catalogue" onclick="filterProducts('power-tools')">Power Tools</a></li>
+                        <li><a href="#catalogue" onclick="filterProducts('building-materials')">Building Materials</a></li>
+                        <li><a href="#catalogue" onclick="filterProducts('plumbing')">Plumbing Supplies</a></li>
+                        <li><a href="#catalogue" onclick="filterProducts('electrical')">Electrical Supplies</a></li>
+                        <li><a href="#catalogue" onclick="filterProducts('hand-tools')">Hand Tools</a></li>
+                        <li><a href="#catalogue" onclick="filterProducts('safety')">Safety Equipment</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Pro Hardware Store. All rights reserved. | This is a demo website template.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--primary);">
+                    Professional web design by DevWeb Design: $70 setup + $20/month maintenance.
+                </p>
+            </div>
+            
+            <div class="demo-notice">
+                <p><strong>Demo Website:</strong> This is a template hardware store website created by DevWeb Design. Real hardware store website: $70 setup + $20/month maintenance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Cordless Drill Set 18V",
+                category: "power-tools",
+                sku: "PT-001",
+                price: 129.99,
+                originalPrice: 159.99,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "18V lithium-ion cordless drill with 2 batteries, charger, and accessory kit.",
+                badge: "sale"
+            },
+            {
+                id: 2,
+                name: "Portable Circular Saw",
+                category: "power-tools",
+                sku: "PT-002",
+                price: 89.99,
+                originalPrice: 99.99,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "7-1/4 inch circular saw with laser guide and dust blower.",
+                badge: ""
+            },
+            {
+                id: 3,
+                name: "Portland Cement 50kg",
+                category: "building-materials",
+                sku: "BM-001",
+                price: 12.99,
+                originalPrice: null,
+                image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "High-quality Portland cement for all construction purposes.",
+                badge: ""
+            },
+            {
+                id: 4,
+                name: "Clay Bricks (Per 1000)",
+                category: "building-materials",
+                sku: "BM-002",
+                price: 450.00,
+                originalPrice: null,
+                image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "low-stock",
+                description: "Standard size clay bricks for construction.",
+                badge: ""
+            },
+            {
+                id: 5,
+                name: "PVC Pipes 20mm (Per Meter)",
+                category: "plumbing",
+                sku: "PL-001",
+                price: 3.49,
+                originalPrice: null,
+                image: "https://images.unsplash.com/photo-1614330264843-9c9f8e163c5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "PVC pressure pipes for water supply systems.",
+                badge: "new"
+            },
+            {
+                id: 6,
+                name: "Copper Wire 2.5mm² (Per Meter)",
+                category: "electrical",
+                sku: "EL-001",
+                price: 2.99,
+                originalPrice: 3.49,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "THHN copper electrical wire for wiring installations.",
+                badge: "sale"
+            },
+            {
+                id: 7,
+                name: "Angle Grinder 125mm",
+                category: "power-tools",
+                sku: "PT-003",
+                price: 75.99,
+                originalPrice: 89.99,
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "125mm angle grinder with safety guard and accessories.",
+                badge: "sale"
+            },
+            {
+                id: 8,
+                name: "Galvanized Roofing Sheets",
+                category: "building-materials",
+                sku: "BM-003",
+                price: 28.50,
+                originalPrice: null,
+                image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                stock: "in-stock",
+                description: "Corrugated galvanized iron sheets for roofing.",
+                badge: ""
+            }
+        ];
+
+        // Cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        // DOM Elements
+        const cartModal = document.getElementById('cartModal');
+        const cartIcon = document.getElementById('cartIcon');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const productGrid = document.getElementById('productGrid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts('all');
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Cart toggle
+            cartIcon.addEventListener('click', () => {
+                cartModal.style.display = 'block';
+                updateCartDisplay();
+            });
+
+            closeCart.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+            });
+
+            // Close cart when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === cartModal) {
+                    cartModal.style.display = 'none';
+                }
+            });
+
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const submitBtn = this.querySelector('.form-btn');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = '✓ Message Sent';
+                        submitBtn.style.backgroundColor = '#1A936F';
+                        
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.backgroundColor = '';
+                            this.reset();
+                            alert('Thank you for your message! We will contact you soon.');
+                        }, 2000);
+                    }, 1500);
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        function loadProducts(filter = 'all') {
+            productGrid.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => 
+                    filter === 'sale' 
+                    ? product.badge === 'sale' || product.originalPrice !== null
+                    : product.category === filter
+                );
+            
+            filteredProducts.forEach(product => {
+                const productElement = createProductElement(product);
+                productGrid.appendChild(productElement);
+            });
+        }
+
+        function createProductElement(product) {
+            const div = document.createElement('div');
+            div.className = 'product-card';
+            div.innerHTML = `
+                ${product.badge ? `<div class="product-badge ${product.badge}">${product.badge === 'sale' ? 'SALE' : 'NEW'}</div>` : ''}
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="product-sku">SKU: ${product.sku}</div>
+                    <div class="product-price">
+                        <span class="current-price">$${product.price.toFixed(2)}</span>
+                        ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                    </div>
+                    <div class="product-meta">
+                        <div class="stock-status ${product.stock}">
+                            <i class="fas ${product.stock === 'in-stock' ? 'fa-check-circle' : product.stock === 'low-stock' ? 'fa-exclamation-circle' : 'fa-times-circle'}"></i>
+                            ${product.stock === 'in-stock' ? 'In Stock' : product.stock === 'low-stock' ? 'Low Stock' : 'Out of Stock'}
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart" onclick="addToCart(${product.id})">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <button class="btn-view" onclick="viewProduct(${product.id})">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            return div;
+        }
+
+        function filterProducts(category) {
+            // Update active filter button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(category.replace('-', ' ')) || 
+                    (category === 'all' && btn.textContent.includes('All Products'))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            loadProducts(category);
+            
+            // Scroll to catalogue section
+            document.getElementById('catalogue').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            showNotification('Added to cart: ' + product.name);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            updateCartDisplay();
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+
+        function updateCartDisplay() {
+            cartItems.innerHTML = '';
+            cartTotal = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align:center;color:var(--gray);">Your cart is empty</p>';
+                cartTotalElement.textContent = '$0.00';
+                return;
+            }
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                cartTotal += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)} × ${item.quantity}</div>
+                        <div>Subtotal: $${itemTotal.toFixed(2)}</div>
+                    </div>
+                    <div class="cart-item-remove" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-times"></i>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotalElement.textContent = '$' + cartTotal.toFixed(2);
+        }
+
+        function viewProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            alert(`Product Details:\n\nName: ${product.name}\nSKU: ${product.sku}\nPrice: $${product.price.toFixed(2)}\nDescription: ${product.description}`);
+        }
+
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-check-circle"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            // Add styles if not already added
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background: white;
+                        border-left: 4px solid var(--primary);
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                        border-radius: 4px;
+                        padding: 15px 20px;
+                        z-index: 9999;
+                        animation: slideInRight 0.3s ease-out, slideOutRight 0.3s ease-out 4.7s;
+                        transform: translateX(100%);
+                    }
+                    
+                    @keyframes slideInRight {
+                        to {
+                            transform: translateX(0);
+                        }
+                    }
+                    
+                    @keyframes slideOutRight {
+                        from {
+                            transform: translateX(0);
+                        }
+                        to {
+                            transform: translateX(100%);
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Trigger animation
+            setTimeout(() => {
+                notification.style.animation = 'slideInRight 0.3s ease-out forwards';
+            }, 10);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Update copyright year
+        const yearElement = document.querySelector('.footer-bottom p');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+        }
+    </script>
+</body>
+</html>

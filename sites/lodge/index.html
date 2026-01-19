@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The White Lodge | Minimal Alpine Retreat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* ===== MINIMAL COLOR PALETTE ===== */
+        :root {
+            --sage: #8A9A8A;        /* Muted sage green */
+            --forest: #4A5D4A;      /* Dark forest green */
+            --charcoal: #2C3E2C;    /* Deep charcoal green-gray */
+            --light-gray: #F8F9F8;  /* Off-white with green tint */
+            --stone: #D1D9D1;       /* Stone gray */
+            --accent-white: #FFFFFF; /* Pure white for contrast */
+            --text-dark: #1A1F1A;   /* Dark green-gray text */
+            --text-light: #5A6D5A;  /* Medium green-gray text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light-gray);
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: var(--sage);
+            margin: 0 auto 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--charcoal);
+            color: var(--accent-white);
+            border: 1px solid var(--charcoal);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--forest);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 62, 44, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--charcoal);
+            border: 1px solid var(--stone);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--charcoal);
+            background-color: rgba(44, 62, 44, 0.02);
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--light-gray);
+            z-index: 1000;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--stone);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 20px 0;
+            background-color: rgba(248, 249, 248, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-weight: 300;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--charcoal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--charcoal);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 200px 0 120px;
+            background-color: var(--light-gray);
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 120px 0;
+            background-color: var(--accent-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ===== SUITES SECTION ===== */
+        .suites {
+            padding: 120px 0;
+            background-color: var(--light-gray);
+        }
+
+        .suites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .suite-card {
+            background: var(--accent-white);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid var(--stone);
+        }
+
+        .suite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(138, 154, 138, 0.08);
+        }
+
+        .suite-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .suite-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .suite-card:hover .suite-image img {
+            transform: scale(1.05);
+        }
+
+        .suite-content {
+            padding: 30px;
+        }
+
+        .suite-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        .suite-price {
+            color: var(--sage);
+            font-weight: 400;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .suite-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .suite-details {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .suite-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            padding: 120px 0;
+            background-color: var(--accent-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 20px;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 120px 0;
+            background-color: var(--light-gray);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: var(--accent-white);
+            padding: 50px;
+            border-left: 1px solid var(--stone);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--sage);
+            font-weight: 400;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--charcoal);
+            padding: 80px 0 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent-white);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .footer-description {
+            color: var(--stone);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            color: var(--accent-white);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--stone);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s;
+            font-weight: 300;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-white);
+            transform: translateX(3px);
+        }
+
+        .footer-contact p {
+            color: var(--stone);
+            margin-bottom: 0.8rem;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(209, 217, 209, 0.1);
+            color: var(--stone);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 250px);
+            }
+            
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--accent-white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                border-top: 1px solid var(--stone);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .suites-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 250px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                THE WHITE <span>LODGE</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#suites">Suites</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">Minimalism in the Mountains</h1>
+                <p class="hero-subtitle">
+                    A sanctuary of quiet luxury where refined design meets untouched wilderness. Experience tranquility through minimalist architecture, sustainable practices, and mindful hospitality.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#suites" class="btn btn-primary">Explore Suites</a>
+                    <a href="#contact" class="btn btn-secondary">Request Brochure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Philosophy</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">Sustainable Design</h3>
+                    <p class="feature-description">
+                        Built with locally sourced materials and designed to have minimal environmental impact while maximizing connection to nature.
+                    </p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="feature-title">Mindful Spaces</h3>
+                    <p class="feature-description">
+                        Each space is thoughtfully curated to promote tranquility, with attention to natural light, acoustics, and negative space.
+                    </p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="feature-title">Seasonal Cuisine</h3>
+                    <p class="feature-description">
+                        Farm-to-table dining featuring organic produce from our kitchen garden and local producers, prepared with minimalist elegance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suites Section -->
+    <section class="suites" id="suites">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Minimal Suites</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Our suites are studies in restraint, where every element serves a purpose and nothing is superfluous.
+            </p>
+            
+            <div class="suites-grid">
+                <div class="suite-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="suite-image">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Forest View Suite">
+                    </div>
+                    <div class="suite-content">
+                        <h3 class="suite-title">Forest View Suite</h3>
+                        <div class="suite-price">From $850 / night</div>
+                        <div class="suite-details">
+                            <div class="suite-detail"><i class="fas fa-expand-arrows-alt"></i> 65 m²</div>
+                            <div class="suite-detail"><i class="fas fa-user-friends"></i> 2 Guests</div>
+                            <div class="suite-detail"><i class="fas fa-bed"></i> King Bed</div>
+                        </div>
+                        <p class="suite-description">
+                            Floor-to-ceiling windows frame the ancient pines, with a minimalist interior palette of oak, linen, and stone.
+                        </p>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="suite-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="suite-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mountain Studio">
+                    </div>
+                    <div class="suite-content">
+                        <h3 class="suite-title">Mountain Studio</h3>
+                        <div class="suite-price">From $720 / night</div>
+                        <div class="suite-details">
+                            <div class="suite-detail"><i class="fas fa-expand-arrows-alt"></i> 45 m²</div>
+                            <div class="suite-detail"><i class="fas fa-user-friends"></i> 2 Guests</div>
+                            <div class="suite-detail"><i class="fas fa-bed"></i> Queen Bed</div>
+                        </div>
+                        <p class="suite-description">
+                            An open-concept space with integrated furniture and a curated selection of artisanal objects. Private balcony with valley views.
+                        </p>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="suite-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="suite-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Zen Garden Suite">
+                    </div>
+                    <div class="suite-content">
+                        <h3 class="suite-title">Zen Garden Suite</h3>
+                        <div class="suite-price">From $950 / night</div>
+                        <div class="suite-details">
+                            <div class="suite-detail"><i class="fas fa-expand-arrows-alt"></i> 75 m²</div>
+                            <div class="suite-detail"><i class="fas fa-user-friends"></i> 2 Guests</div>
+                            <div class="suite-detail"><i class="fas fa-bed"></i> King Bed</div>
+                        </div>
+                        <p class="suite-description">
+                            Features a private stone garden visible from every room. Tatami meditation area and an ofuro-style soaking tub.
+                        </p>
+                        <a href="#" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Minimal Aesthetics</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Architecture">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detail">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nature">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wellness">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dining">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Experiences</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">
+                        "The White Lodge redefined luxury for us. It's not about opulence, but about the quality of space, light, and silence. The most restorative stay we've ever experienced."
+                    </p>
+                    <div class="testimonial-author">— Emma & James, London</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-logo">WHITE LODGE</h3>
+                    <p class="footer-description">
+                        A minimalist alpine retreat in the Canadian Rockies. Designed for those who appreciate quiet luxury and meaningful connection with nature.
+                    </p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-links">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Alpine Way, Banff, Alberta</p>
+                        <p><i class="fas fa-phone"></i> +1 (403) 555-0123</p>
+                        <p><i class="fas fa-envelope"></i> stay@whitelodge.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Explore</h4>
+                    <a href="#suites">Accommodations</a>
+                    <a href="#experiences">Seasonal Experiences</a>
+                    <a href="#dining">Minimalist Dining</a>
+                    <a href="#sustainability">Sustainability</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 The White Lodge. All rights reserved. | Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+        
+        // DOMContentLoaded ensures elements are loaded before JS runs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Gallery item hover effect enhancement
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

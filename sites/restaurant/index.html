@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Vista | Authentic Italian & Local Cuisine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* ===== RESTAURANT STYLES ===== */
+        :root {
+            --primary: #D72638;      /* Vibrant red */
+            --secondary: #F2A541;    /* Warm orange */
+            --accent: #3F88C5;       /* Blue accent */
+            --dark: #1A1A1A;         /* Dark background */
+            --light: #F8F9FA;        /* Light background */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --gold: #D4AF37;
+            --olive: #808000;
+            --cream: #FFFDD0;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 0 auto 2rem;
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(26, 26, 26, 0.98);
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-cta {
+            background-color: var(--primary);
+            color: var(--text-light) !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-cta:hover::after {
+            width: 0 !important;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(215, 38, 56, 0.2), transparent 50%),
+                        radial-gradient(circle at 70% 20%, rgba(242, 165, 65, 0.15), transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--text-light);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .feature i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 3px;
+            background: rgba(215, 38, 56, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        
+        .feature h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .feature p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(215, 38, 56, 0.3);
+        }
+        
+        .experience-years {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .experience-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== MENU SECTION ===== */
+        .menu {
+            padding: 100px 0;
+            background-color: var(--dark);
+            color: var(--text-light);
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-category {
+            margin-bottom: 4rem;
+        }
+        
+        .category-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .menu-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .item-content {
+            flex: 1;
+        }
+        
+        .item-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .item-name {
+            flex: 1;
+        }
+        
+        .item-price {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+        
+        .item-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .item-tag {
+            background: rgba(63, 136, 197, 0.2);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .item-tag.spicy {
+            background: rgba(215, 38, 56, 0.2);
+            color: var(--primary);
+        }
+        
+        .item-tag.veg {
+            background: rgba(40, 167, 69, 0.2);
+            color: var(--success);
+        }
+        
+        /* ===== SPECIALS SECTION ===== */
+        .specials {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .special-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+        
+        .special-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .special-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .special-card:hover .special-image img {
+            transform: scale(1.1);
+        }
+        
+        .special-content {
+            padding: 25px;
+        }
+        
+        .special-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .special-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .special-description {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .special-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* ===== RESERVATION SECTION ===== */
+        .reservation {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+        }
+        
+        .reservation-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            width: 100%;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            opacity: 0.7;
+        }
+        
+        .contact-value {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background-color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--dark);
+            padding: 60px 0 30px;
+            color: var(--text-light);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .opening-hours {
+            list-style: none;
+        }
+        
+        .opening-hours li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .demo-notice {
+            background-color: var(--light);
+            padding: 20px;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--secondary);
+        }
+        
+        .demo-notice p {
+            color: var(--dark);
+            margin: 0;
+        }
+        
+        /* ===== ANIMATION STYLES ===== */
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+        }
+        
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .specials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .reservation-form {
+                padding: 30px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Bella<span>Vista</span></a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#specials">Specials</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#reservation">Reservations</a>
+                <a href="#contact">Contact</a>
+                <a href="#reservation" class="nav-cta">Book Table</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 class="hero-title" data-aos="fade-down" data-aos-delay="100">Bella Vista</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Where authentic Italian flavors meet local Zimbabwean hospitality. Experience fine dining with a touch of home.
+            </p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="#menu" class="btn btn-primary">View Our Menu</a>
+                <a href="#reservation" class="btn btn-secondary">Reserve a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Story</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                A fusion of Italian culinary excellence and warm Zimbabwean hospitality since 2005
+            </p>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>A Taste of Italy in the Heart of Zimbabwe</h2>
+                    <p>
+                        Bella Vista was born from a love for authentic Italian cuisine and a passion for bringing people together. 
+                        Our founder, Chef Giovanni, combined traditional Italian recipes with fresh local ingredients to create 
+                        a unique dining experience that feels both exotic and familiar.
+                    </p>
+                    <p>
+                        We believe that great food should tell a story. Every dish on our menu is crafted with care, 
+                        using the finest ingredients sourced from local farmers and imported Italian specialties.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature" data-aos="fade-right" data-aos-delay="100">
+                            <i class="fas fa-leaf"></i>
+                            <div>
+                                <h4>Fresh Ingredients</h4>
+                                <p>Daily deliveries from local markets and Italian imports</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature" data-aos="fade-right" data-aos-delay="200">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h4>Handcrafted Dishes</h4>
+                                <p>Every meal prepared with passion and attention to detail</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature" data-aos="fade-right" data-aos-delay="300">
+                            <i class="fas fa-wine-glass-alt"></i>
+                            <div>
+                                <h4>Curated Wine List</h4>
+                                <p>Perfect Italian and South African wine pairings</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature" data-aos="fade-right" data-aos-delay="400">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Warm Hospitality</h4>
+                                <p>Service that makes you feel like family</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
+                    <div class="experience-badge" data-aos="zoom-in" data-aos-delay="500">
+                        <span class="experience-years">18+</span>
+                        <span class="experience-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MENU SECTION ===== -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Menu</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                A carefully curated selection of Italian classics and local favorites
+            </p>
+            
+            <div class="menu-filters" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="starters">Starters</button>
+                <button class="filter-btn" data-filter="pasta">Pasta</button>
+                <button class="filter-btn" data-filter="pizza">Pizza</button>
+                <button class="filter-btn" data-filter="mains">Main Courses</button>
+                <button class="filter-btn" data-filter="desserts">Desserts</button>
+            </div>
+            
+            <div class="menu-category" data-category="starters">
+                <h3 class="category-title" data-aos="fade-up">Antipasti (Starters)</h3>
+                <div class="menu-grid">
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Bruschetta al Pomodoro</span>
+                                <span class="item-price">$12</span>
+                            </div>
+                            <p class="item-description">
+                                Toasted bread topped with fresh tomatoes, garlic, basil, and extra virgin olive oil
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Calamari Fritti</span>
+                                <span class="item-price">$16</span>
+                            </div>
+                            <p class="item-description">
+                                Crispy fried squid served with lemon aioli and spicy tomato dip
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag spicy">Spicy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Caprese Salad</span>
+                                <span class="item-price">$14</span>
+                            </div>
+                            <p class="item-description">
+                                Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" data-category="pasta">
+                <h3 class="category-title" data-aos="fade-up">Pasta & Risotto</h3>
+                <div class="menu-grid">
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Spaghetti Carbonara</span>
+                                <span class="item-price">$18</span>
+                            </div>
+                            <p class="item-description">
+                                Classic Roman pasta with eggs, pecorino cheese, pancetta, and black pepper
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Penne all'Arrabbiata</span>
+                                <span class="item-price">$16</span>
+                            </div>
+                            <p class="item-description">
+                                Penne pasta in a spicy tomato and garlic sauce
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag spicy">Spicy</span>
+                                <span class="item-tag veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Risotto ai Funghi</span>
+                                <span class="item-price">$20</span>
+                            </div>
+                            <p class="item-description">
+                                Creamy risotto with wild mushrooms, parmesan, and truffle oil
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" data-category="pizza">
+                <h3 class="category-title" data-aos="fade-up">Wood-Fired Pizza</h3>
+                <div class="menu-grid">
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Margherita</span>
+                                <span class="item-price">$22</span>
+                            </div>
+                            <p class="item-description">
+                                Classic pizza with tomato, mozzarella, basil, and olive oil
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Quattro Stagioni</span>
+                                <span class="item-price">$26</span>
+                            </div>
+                            <p class="item-description">
+                                Four seasons pizza with artichokes, mushrooms, ham, and olives
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Diavola</span>
+                                <span class="item-price">$24</span>
+                            </div>
+                            <p class="item-description">
+                                Spicy salami, mozzarella, tomato, and chili peppers
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag spicy">Spicy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category" data-category="mains">
+                <h3 class="category-title" data-aos="fade-up">Main Courses</h3>
+                <div class="menu-grid">
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Osso Buco alla Milanese</span>
+                                <span class="item-price">$32</span>
+                            </div>
+                            <p class="item-description">
+                                Braised veal shanks with vegetables, white wine, and broth
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Saltimbocca alla Romana</span>
+                                <span class="item-price">$28</span>
+                            </div>
+                            <p class="item-description">
+                                Veal cutlets with prosciutto and sage, cooked in white wine
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="item-content">
+                            <div class="item-title">
+                                <span class="item-name">Grilled Sadza with Oxtail</span>
+                                <span class="item-price">$25</span>
+                            </div>
+                            <p class="item-description">
+                                Traditional Zimbabwean maize meal served with tender oxtail stew
+                            </p>
+                            <div class="item-tags">
+                                <span class="item-tag">Local Favorite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SPECIALS SECTION ===== -->
+    <section id="specials" class="specials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Today's Specials</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                Chef's exclusive creations and seasonal favorites
+            </p>
+            
+            <div class="specials-grid">
+                <div class="special-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="special-badge">Limited Time</div>
+                    <div class="special-image">
+                        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Truffle Pasta">
+                    </div>
+                    <div class="special-content">
+                        <h3 class="special-title">Truffle Tagliatelle</h3>
+                        <div class="special-price">$24</div>
+                        <p class="special-description">
+                            Fresh tagliatelle pasta with black truffle cream sauce, parmesan, and herbs
+                        </p>
+                        <div class="special-meta">
+                            <span><i class="far fa-clock"></i> 15-20 mins</span>
+                            <span><i class="fas fa-user-friends"></i> 1-2 servings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="special-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="special-badge">Chef's Pick</div>
+                    <div class="special-image">
+                        <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seafood Platter">
+                    </div>
+                    <div class="special-content">
+                        <h3 class="special-title">Mediterranean Seafood Platter</h3>
+                        <div class="special-price">$38</div>
+                        <p class="special-description">
+                            Grilled prawns, calamari, mussels, and fish with lemon garlic butter
+                        </p>
+                        <div class="special-meta">
+                            <span><i class="far fa-clock"></i> 25-30 mins</span>
+                            <span><i class="fas fa-user-friends"></i> 2-3 servings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="special-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="special-badge">Seasonal</div>
+                    <div class="special-image">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Berry Dessert">
+                    </div>
+                    <div class="special-content">
+                        <h3 class="special-title">Berry Tiramisu</h3>
+                        <div class="special-price">$14</div>
+                        <p class="special-description">
+                            Classic tiramisu with fresh seasonal berries and berry coulis
+                        </p>
+                        <div class="special-meta">
+                            <span><i class="far fa-clock"></i> Ready to serve</span>
+                            <span><i class="fas fa-user-friends"></i> 1 serving</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Gallery</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                A glimpse into the Bella Vista experience
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Elegant Dining Area</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pizza Preparation">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Wood-Fired Pizza</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wine Selection">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Wine Collection</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Food Presentation">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Artistic Plating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESERVATION SECTION ===== -->
+    <section id="reservation" class="reservation">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Make a Reservation</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                Book your table for an unforgettable dining experience
+            </p>
+            
+            <div class="reservation-form" data-aos="fade-up" data-aos-delay="200">
+                <form id="reservationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of Guests *</label>
+                            <select id="guests" class="form-control" required>
+                                <option value="">Select number</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6">6+ People</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time">Time *</label>
+                            <select id="time" class="form-control" required>
+                                <option value="">Select time</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="18:30">6:30 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="19:30">7:30 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                                <option value="20:30">8:30 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests</label>
+                        <textarea id="special-requests" class="form-control" rows="4" placeholder="Any special requests or dietary requirements?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-btn">Book Your Table</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+            <div class="divider" data-aos="fade-up" data-aos-delay="100"></div>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">
+                Visit us or get in touch - we'd love to hear from you
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="contact-label">Address</div>
+                            <div class="contact-value">123 Italian Way, Mutare, Zimbabwe</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-value">+263 123 456 789</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">info@bellavista.co.zw</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="contact-label">Opening Hours</div>
+                            <div class="contact-value">Mon-Sun: 12:00 PM - 10:00 PM</div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="map-container" data-aos="fade-left">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3793.112245209873!2d32.64731457487162!3d-18.185320982539744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1930f7d1e8a5c935%3A0xd19d9c5935f0c42e!2sMutare%2C%20Zimbabwe!5e0!3m2!1sen!2sus!4v1703012345678!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Bella<span>Vista</span></div>
+                    <p class="footer-text">
+                        Authentic Italian cuisine with Zimbabwean heart. Experience fine dining with warm hospitality.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#specials">Specials</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Opening Hours</h4>
+                    <ul class="opening-hours">
+                        <li><span>Monday - Thursday</span> <span>12pm - 10pm</span></li>
+                        <li><span>Friday - Saturday</span> <span>12pm - 11pm</span></li>
+                        <li><span>Sunday</span> <span>12pm - 9pm</span></li>
+                        <li><span>Public Holidays</span> <span>12pm - 10pm</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bella Vista Restaurant. All rights reserved. | This is a demo website template.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--secondary);">
+                    Professional web design by DevWeb Design: $70 setup + $20/month maintenance.
+                </p>
+            </div>
+            
+            <div class="demo-notice">
+                <p><strong>Demo Website:</strong> This is a template restaurant website created by DevWeb Design. Real restaurant website: $70 setup + $20/month maintenance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100,
+                delay: 0,
+                disable: window.innerWidth < 768
+            });
+            
+            // ===== MOBILE MENU TOGGLE =====
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuToggle.innerHTML = navLinks.classList.contains('active') ? 
+                        '<i class="fas fa-times"></i>' : 
+                        '<i class="fas fa-bars"></i>';
+                });
+            }
+            
+            // ===== NAVBAR SCROLL EFFECT =====
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // ===== MENU FILTERING =====
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const menuCategories = document.querySelectorAll('.menu-category');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Show/hide menu categories based on filter
+                    menuCategories.forEach(category => {
+                        const categoryType = category.getAttribute('data-category');
+                        
+                        if (filter === 'all' || filter === categoryType) {
+                            category.style.display = 'block';
+                            setTimeout(() => {
+                                category.style.opacity = '1';
+                            }, 10);
+                        } else {
+                            category.style.opacity = '0';
+                            setTimeout(() => {
+                                category.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // ===== RESERVATION FORM =====
+            const reservationForm = document.getElementById('reservationForm');
+            if (reservationForm) {
+                // Set minimum date to today
+                const dateInput = document.getElementById('date');
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
+                
+                reservationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const submitBtn = this.querySelector('.form-btn');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Booking...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate booking process
+                    setTimeout(() => {
+                        submitBtn.textContent = '✓ Table Booked!';
+                        submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                        
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = '';
+                            this.reset();
+                            
+                            // Show success message
+                            showNotification('Your table has been booked! We\'ll confirm shortly.');
+                        }, 2000);
+                    }, 1500);
+                });
+            }
+            
+            // ===== SMOOTH SCROLLING =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (navLinks) navLinks.classList.remove('active');
+                        if (menuToggle) menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // ===== NOTIFICATION FUNCTION =====
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas fa-check-circle"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                
+                // Add styles if not already added
+                if (!document.querySelector('#notification-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'notification-styles';
+                    style.textContent = `
+                        .notification {
+                            position: fixed;
+                            top: 100px;
+                            right: 20px;
+                            background: white;
+                            border-left: 4px solid var(--primary);
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                            border-radius: 4px;
+                            padding: 15px 20px;
+                            z-index: 9999;
+                            animation: slideInRight 0.3s ease-out, slideOutRight 0.3s ease-out 4.7s;
+                            transform: translateX(100%);
+                        }
+                        
+                        @keyframes slideInRight {
+                            to {
+                                transform: translateX(0);
+                            }
+                        }
+                        
+                        @keyframes slideOutRight {
+                            from {
+                                transform: translateX(0);
+                            }
+                            to {
+                                transform: translateX(100%);
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+                
+                document.body.appendChild(notification);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    notification.style.animation = 'slideInRight 0.3s ease-out forwards';
+                }, 10);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOutRight 0.3s ease-out forwards';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }, 5000);
+            }
+            
+            // ===== ENHANCE MENU ITEM HOVER =====
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // ===== UPDATE COPYRIGHT YEAR =====
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+            }
+            
+            // ===== EXPERIENCE BADGE PULSE =====
+            const experienceBadge = document.querySelector('.experience-badge');
+            if (experienceBadge) {
+                setInterval(() => {
+                    experienceBadge.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        experienceBadge.style.transform = 'scale(1)';
+                    }, 500);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
