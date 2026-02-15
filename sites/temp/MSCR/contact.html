@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Mutare Sports Club Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-toggle" id="navToggle">MENU</button>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div class="nav-menu" id="navMenu">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="about.html" class="nav-link">About Us</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-image" style="background-image: url('images/4.jpeg');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <h1>Get in Touch</h1>
+    <p>
+      We'd love to hear from you. Reach out with any questions, reservations, or 
+      special requests.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-grid">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h2 class="reveal">Contact Information</h2>
+      
+      <div class="info-block">
+        <h3 class="reveal">Location</h3>
+        <p class="reveal">
+          Mutare Sports Club<br>
+          Mutare, Zimbabwe
+        </p>
+      </div>
+
+      <div class="info-block">
+        <h3 class="reveal">Hours</h3>
+        <p class="reveal">
+          Monday - Sunday<br>
+          11:00 AM - 11:00 PM
+        </p>
+      </div>
+
+      <div class="info-block">
+        <h3 class="reveal">Connect With Us</h3>
+        <p class="reveal">
+          Follow us on Instagram for updates and special events:
+        </p>
+        <a href="https://www.instagram.com/mutare_sports_club_restaurant" target="_blank" rel="noopener noreferrer" class="instagram-link reveal">
+          @mutare_sports_club_restaurant
+        </a>
+      </div>
+
+      <div class="info-block">
+        <h3 class="reveal">Reservations</h3>
+        <p class="reveal">
+          To make a reservation or inquire about special events, 
+          please fill out the form on the right.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <div id="formMessage" class="form-message" style="display: none;">
+        <p>Thank you for reaching out!</p>
+        <p>We'll get back to you soon.</p>
+      </div>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name" class="reveal">Name</label>
+          <input type="text" id="name" name="name" required class="reveal">
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="reveal">Email</label>
+          <input type="email" id="email" name="email" required class="reveal">
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="reveal">Phone (Optional)</label>
+          <input type="tel" id="phone" name="phone" class="reveal">
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="reveal">Message</label>
+          <textarea id="message" name="message" rows="6" required class="reveal"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn reveal">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION VISUAL -->
+<section class="location-visual">
+  <h2 class="reveal">Visit Us</h2>
+  <div class="location-image reveal" style="background-image: url('images/1.jpeg');"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3 class="reveal">Mutare Sports Club Restaurant</h3>
+  <p class="reveal">Mutare, Zimbabwe</p>
+  <p class="reveal">Community · Dining · Celebration</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
